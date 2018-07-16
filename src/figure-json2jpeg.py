@@ -50,7 +50,10 @@ def main(dir_path, metadata_fpath):
         def get_figure_file_name(page=None):
             return os.path.join(dir_path, '%d.jpg' % fig_id)
         fig_export.get_figure_file_name = get_figure_file_name
-        fig_export.build_figure()
+        try:
+            fig_export.build_figure()
+        except:
+            print("failed to build figure '%d'" % fig_id)
 
 
 if __name__ == '__main__':
